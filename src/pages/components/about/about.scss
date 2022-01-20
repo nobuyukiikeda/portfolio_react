@@ -1,0 +1,145 @@
+@import '_mixin';
+
+.about {
+  @include mq {
+    padding: 16px;
+  }
+  &__skill-content {
+    @include mq {
+      height: 260px;
+    }
+  }
+  &__skill-text {
+    padding-top: 1em;
+    h3 {
+      font-size: 1.5em;
+    }
+    li {
+      @import '_mixin';
+    }
+  }
+  @import '_mixin';
+}
+
+.skill-data-wrap {
+  @import '_mixin';
+}
+
+.skill-data {
+}
+
+.skill-title {
+  padding: 0 0 16px;
+  overflow: hidden;
+  @include mq {
+    padding: 0 0 8px;
+  }
+  & > h3 {
+    display: inline-block;
+    color: $primary;
+    font-size: 1.2em;
+    font-family: $primaryFont;
+    font-weight: 400;
+    line-height: 1;
+    position: relative;
+    transition: color 0.6s ease-in-out, background-color 0.6s ease-in-out;
+    @include mq {
+      font-size: 1em;
+    }
+    &::after {
+      @include ba-block(1000px, 1px);
+      left: 110%;
+      top: 50%;
+      background-color: $primary;
+      transition: color 0.6s ease-in-out, background-color 0.6s ease-in-out;
+      @import '_mixin';
+    }
+  }
+}
+
+.skill-list {
+  padding: 0 0 16px;
+  @include mq {
+    padding: 0 0 8px;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 0 0 16px;
+    @include mq {
+      padding: 0 0 4px;
+    }
+  }
+  &__title {
+    color: $primary;
+    font-size: 1em;
+    font-family: $primaryFont;
+    font-weight: 400;
+    width: auto;
+    min-width: 140px;
+    margin-right: 24px;
+    transition: color 0.6s ease-in-out, background-color 0.6s ease-in-out;
+    @include mq {
+      font-size: 0.875em;
+      min-width: 120px;
+      margin-right: 16px;
+    }
+  }
+  &__data {
+    width: 100%;
+    height: 15px;
+    background-color: $base;
+    border: $border;
+    position: relative;
+    @include mq {
+      height: 13px;
+      @import '_mixin';
+    }
+  }
+}
+
+.skill-point {
+  @include ba-block(0, 13px);
+  background-color: $primary;
+  top: 0;
+  left: 0;
+  transition: width 0.8s 1s $easeInOutQuart;
+  @include mq {
+    @import '_mixin';
+
+    height: 11px;
+  }
+}
+@import '_mixin';
+
+@import '_mixin';
+.sk ill-data--code {
+}
+
+.skill-data--design {
+  .skill-title > h3 {
+    color: $sub;
+    @import '_mixin';
+
+    &::after {
+      background-color: $sub;
+    }
+    @import '_mixin';
+  }
+
+  .skill-list__title {
+    color: $sub;
+  }
+  .skill-list {
+    padding: 0;
+    &__item:last-child {
+      padding: 0;
+      @import '_mixin';
+    }
+    &__data {
+    }
+  }
+  .skill-point {
+    background-color: $sub;
+  }
+}

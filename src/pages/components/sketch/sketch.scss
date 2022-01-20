@@ -1,0 +1,39 @@
+@import '_mixin';
+
+.sketch {
+  position: relative;
+  &__title {
+    text-align: center;
+  }
+}
+
+.sketch-list {
+  display: flex;
+  flex-flow: row wrap;
+  @include mq(medium) {
+  }
+}
+
+.sketch-item {
+  width: 25%;
+  display: block;
+  line-height: 1;
+  text-align: center;
+  padding: 0 32px 40px;
+  @include mq(medium) {
+    width: 50%;
+  }
+  &__img {
+    line-height: 0;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  &__title {
+    font-family: $primaryFont;
+    font-weight: bold;
+    padding-top: 32px;
+    text-shadow: 0 4px 20px rgba($textColor, 0.4);
+  }
+}

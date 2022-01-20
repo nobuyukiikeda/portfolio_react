@@ -1,4 +1,8 @@
 import React from 'react';
+import './sketch.scss';
+import gallery from '../../../assets/img/top/gallery.jpg';
+import turnImage from '../../../assets/img/top/turnImage.jpg';
+import mixColor from '../../../assets/img/top/mixColor.jpg';
 
 export default class Sketch extends React.Component {
   render() {
@@ -11,33 +15,21 @@ export default class Sketch extends React.Component {
               <ul className="sketch-list">
                 <li className="sketch-item">
                   <a className="sketch-item__img ishadow" href="./gallery/">
-                    <img
-                      src="img/gallery.jpg"
-                      data-blur="20"
-                      alt="Art gallery"
-                    />
+                    <img src={gallery} data-blur="20" alt="Art gallery" />
                     <div className="image-shadow"></div>
                   </a>
                   <p className="sketch-item__title">Art Gallery</p>
                 </li>
                 <li className="sketch-item">
                   <a className="sketch-item__img ishadow" href="./turnImage/">
-                    <img
-                      src="img/turnImage.jpg"
-                      data-blur="20"
-                      alt="turn image demo"
-                    />
+                    <img src={turnImage} data-blur="20" alt="turn image demo" />
                     <div className="image-shadow"></div>
                   </a>
                   <p className="sketch-item__title">turn image demo</p>
                 </li>
                 <li className="sketch-item">
                   <a className="sketch-item__img ishadow" href="./mixColor/">
-                    <img
-                      src="img/mixColor.jpg"
-                      data-blur="20"
-                      alt="mix color tool"
-                    />
+                    <img src={mixColor} data-blur="20" alt="mix color tool" />
                     <div className="image-shadow"></div>
                   </a>
                   <p className="sketch-item__title">mix color project</p>

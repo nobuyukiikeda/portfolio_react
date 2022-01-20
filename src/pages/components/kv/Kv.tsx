@@ -1,4 +1,5 @@
 import React from 'react';
+import './kv.scss';
 
 export default class Kv extends React.Component {
   render() {

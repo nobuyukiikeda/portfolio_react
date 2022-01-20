@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+
+// 変数
+$black: #191924;
+$grayDark: #44445a;
+$grayMiddle: #707080;
+$grayLight: #cacacf;
+$white: #f4f4fe;
+
+$base: #f3f3fa;
+
+$textColor: $grayDark;
+
+$primary: #333366;
+$primaryLight: lighten($primary, 15%);
+$primaryHighlight: lighten($primary, 40%);
+$primaryDark: darken($primary, 15%);
+$sub: #ff5f5f;
+$subLight: lighten($sub, 15%);
+$subHighlight: lighten($sub, 40%);
+$subDark: darken($sub, 15%);
+$link: #0060ca;
+
+$brown: #5b210d;
+$red: #fa3935;
+$blue: #007aff;
+
+// ボーダースタイル
+$border: 1px solid #ccc;
+
+// 基本ゴシック
+$gothic: -apple-system, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "游ゴシック", YuGothic,
+  Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif;
+// 基本明朝
+$mincho: "游明朝体", "YuMincho", "游明朝", "Yu Mincho", "ヒラギノ明朝 Pro W6", "HiraMinPro-W6", "ヒラギノ明朝 Pro W3",
+  "Hiragino Mincho Pro", "ＭＳ 明朝", "MS Mincho";
+// 端末標準英字フォント
+$sansSerif: "Trebuchet MS", "Comic Sans MS", "Verdana", "Arial", "Courier New", "sans-serif";
+// 端末標準セリフ
+$serif: "Georgia", "Times New Roman", "Roman", "serif";
+$primaryFont: "Ubuntu", "Trebuchet MS", "Comic Sans MS", "Verdana", "Arial", "Courier New", sans-serif;
+
+//クリアーフィックスmixin
+@mixin cf() {
+  &::before {
+    content: "";
+    display: table;
+  }
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// FontAwesome
+@mixin awesome($size: 20px) {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  font-size: $size;
+}
+
+// リンク色変え
+@mixin link-colors($color) {
+  color: $color;
+  text-decoration: none;
+  &:hover {
+    color: lighten($color, 15%);
+    text-decoration: underline;
+  }
+  &:visited {
+    color: desaturate($color, 50%);
+  }
+}
+
+// シャドウ
+@mixin shadow() {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 16px 60px rgba(0, 0, 0, 0.1);
+}
+
+// グラデーション
+@mixin btn-gradient($color: $red) {
+  background-color: $color;
+  background: -webkit-gradient(linear, left top, left bottom, from(lighten($color, 15%)), to($color));
+  background: linear-gradient(lighten($color, 15%), $color);
+  border: 1px solid $color;
+}
+
+@mixin gradient($color: $red) {
+  background: -webkit-gradient(linear, left top, left bottom, from(lighten($color, 15%)), to($color));
+  background: linear-gradient(lighten($color, 15%), $color);
+}
+
+$mq-breakpoints: (
+  "xsmall": 374px,
+  "small": 599px,
+  "medium": 767px,
+  "large": 1023px,
+  "xlarge": 1199px
+);
+$mq-breakpoints-x: (
+  "xsmall": 375px,
+  "small": 600px,
+  "medium": 768px,
+  "large": 1024px,
+  "xlarge": 1200px
+);
+@mixin mq($breakpoint: large) {
+  @media screen and (max-width: #{map-get($mq-breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+@mixin mqx($breakpoint: large) {
+  @media screen and (min-width: #{map-get($mq-breakpoints-x, $breakpoint)}) {
+    @content;
+  }
+}
+
+@mixin ba-block($width: 100%, $height: 100%) {
+  display: block;
+  content: "";
+  width: $width;
+  height: $height;
+  position: absolute;
+}
+
+@mixin centering-elements($horizontal: true, $vertical: true) {
+  position: absolute;
+  @if $horizontal and $vertical {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if $horizontal {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if $vertical {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+@mixin text-truncate {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+@mixin transition($speed: 0.4s) {
+  transition: all $speed;
+}
+
+/******
+アニメーション
+******/
+// パルス
+// ベースは 1.2s ease infinite
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes scroller {
+  0% {
+    bottom: 20px;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes loadingText {
+  0% {
+    opacity: 0;
+  }
+}
+
+/******
+イージング
+******/
+$easeInSine: cubic-bezier(0.47, 0, 0.745, 0.715);
+$easeInQuart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+$easeInExpo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+$easeInCirc: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+$easeInBack: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+
+$easeOutSine: cubic-bezier(0.39, 0.575, 0.565, 1);
+$easeOutCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+$easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
+$easeOutExpo: cubic-bezier(0.19, 1, 0.22, 1);
+$easeOutCirc: cubic-bezier(0.075, 0.82, 0.165, 1);
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+$easeInOutSine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+$easeInOutQuart: cubic-bezier(0.77, 0, 0.175, 1);
+$easeInOutExpo: cubic-bezier(1, 0, 0, 1);
+$easeInOutCirc: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+$easeInOutBack: cubic-bezier(0.68, -0.25, 0.265, 1.25);
+
+// 参考 https://easings.net/ja#
