@@ -5,7 +5,7 @@ import './assets/scss/common.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Top />;
+    <Top />
   </React.StrictMode>,
   document.getElementById('root')
 );

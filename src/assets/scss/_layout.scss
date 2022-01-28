@@ -26,32 +26,3 @@
     margin: 0 auto;
   }
 }
-
-.l-column {
-}
-
-.l-two-column {
-  display: flex;
-  justify-content: space-around;
-  @include mq {
-    flex-flow: column wrap;
-  }
-  &__first {
-    width: 50%;
-    padding: 0;
-    @include mq {
-      width: 100%;
-      padding: 0 0 32px;
-    }
-    @include mq(medium) {
-      padding: 0 0 8px;
-    }
-  }
-  &__second {
-    width: 50%;
-    padding: 0;
-    @include mq {
-      width: 100%;
-    }
-  }
-}

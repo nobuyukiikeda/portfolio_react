@@ -14,7 +14,9 @@ export default class Top extends React.Component {
           <About />
           <Sketch />
         </main>
-        <footer />
+        <footer className="footer">
+          <p className="copyright c-font-primary">&copy;Nobuyuki Ikeda</p>
+        </footer>
       </>
     );
   }
