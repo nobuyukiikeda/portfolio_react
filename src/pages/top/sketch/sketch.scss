@@ -25,6 +25,11 @@
   }
   &__img {
     line-height: 0;
+    box-shadow: 0 4px 8px rgba($textColor, 0.6);
+    transition: box-shadow 0.4s;
+    &:hover {
+      box-shadow: 0 8px 20px rgba($textColor, 0.8);
+    }
     img {
       max-width: 100%;
       height: auto;
@@ -34,6 +39,5 @@
     font-family: $primaryFont;
     font-weight: bold;
     padding-top: 32px;
-    text-shadow: 0 4px 20px rgba($textColor, 0.4);
   }
 }

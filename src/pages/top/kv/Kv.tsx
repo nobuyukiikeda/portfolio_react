@@ -54,13 +54,16 @@ export default class Kv extends React.Component<{}, State> {
         <div className="hero">
           <div className="kv"></div>
           <div className="kv__canvas"></div>
-          <div className="scroller" style={{ opacity: this.state.kvOpacity }}>
+          <div
+            className="scroll-icon"
+            style={{ opacity: this.state.kvOpacity }}
+          >
             <span></span>
           </div>
           <div className="catch" style={{ opacity: this.state.kvOpacity }}>
-            <h1>this is my portfolio site</h1>
-            <h2>nobuyuki ikeda</h2>
-            <p>span web developer</p>
+            <h1>This is my portfolio site</h1>
+            <h2>Nobuyuki Ikeda</h2>
+            <p>web developer</p>
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import React from 'react';
-import About from './components/about/About';
-import Kv from './components/kv/Kv';
-import Sketch from './components/sketch/Sketch';
+import About from './about/About';
+import Kv from './kv/Kv';
+import Sketch from './sketch/Sketch';
 import './top.scss';
 
 export default class Top extends React.Component {
