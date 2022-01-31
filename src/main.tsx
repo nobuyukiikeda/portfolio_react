@@ -2,12 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Top from './pages/top/Top';
 import './assets/scss/common.scss';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import {
+  unstable_HistoryRouter as HistoryRouter,
+  Link,
+  Route,
+  Routes,
+} from 'react-router-dom';
 import MixColor from './pages/mix-color/MixColor';
+import history from './history';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HistoryRouter history={history}>
       <Routes>
         <Route path="/" element={<Top />} />
         <Route path="/mix-color" element={<MixColor />} />
@@ -21,7 +27,7 @@ ReactDOM.render(
           }
         />
       </Routes>
-    </BrowserRouter>
+    </HistoryRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

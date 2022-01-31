@@ -1,0 +1,109 @@
+@import '_mixin';
+@import url('https://fonts.googleapis.com/css?family=Gugi');
+$gugi: 'Gugi', 'Ubuntu', cursive, sans-serif;
+
+.sketch-info {
+}
+
+.sketch-info__back {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  top: 40px;
+  left: 40px;
+  @include mq {
+    width: 40px;
+    height: 40px;
+    top: 16px;
+    left: 16px;
+  }
+  a {
+    line-height: 1;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+    @include mq {
+      width: 40px;
+      height: 40px;
+    }
+    &::before {
+      @include ba-block(32px, 32px);
+      top: 20px;
+      left: 20px;
+      border-top: 5px solid $textColor;
+      border-left: 5px solid $textColor;
+      transform: rotateZ(-45deg);
+      @include mq {
+        width: 20px;
+        height: 20px;
+        top: 10px;
+        left: 10px;
+      }
+    }
+    &::after {
+      @include ba-block(32px, 32px);
+      top: 20px;
+      left: 20px;
+      border-top: 5px solid #fff;
+      border-left: 5px solid #fff;
+      transform: rotateZ(-45deg);
+      @include mq {
+        width: 20px;
+        height: 20px;
+        top: 10px;
+        left: 10px;
+      }
+    }
+    &--white {
+      &::before {
+        border-color: #fff;
+      }
+    }
+  }
+}
+
+.sketch-info__title {
+  line-height: 1;
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  text-shadow: 3px 1px #fff;
+  @include mq {
+    bottom: 16px;
+    left: 16px;
+  }
+  h1 {
+    font-family: $gugi;
+    font-size: 4em;
+    padding-bottom: 16px;
+    @include mq {
+      font-size: 2em;
+      padding-bottom: 12px;
+    }
+  }
+  p {
+    font-family: $gugi;
+    font-size: 1.5em;
+    padding-left: 4px;
+    @include mq {
+      font-size: 1em;
+      padding-left: 2px;
+    }
+  }
+}
+
+.sketch-info__logo {
+  max-width: 320px;
+  @include mq {
+    max-width: 200px;
+  }
+  &--pixi {
+    img {
+      @include mq {
+        width: 99px;
+        height: 33px;
+      }
+    }
+  }
+}
