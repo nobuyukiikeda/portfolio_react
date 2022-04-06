@@ -1,5 +1,5 @@
 import React from 'react';
-import SketchInfo from '../../components/sketch-info/SketchInfo';
+import SketchInfoPixi from '../../components/sketch-info/SketchInfoPixi';
 import './mixColor.scss';
 import * as PIXI from 'pixi.js';
 import * as dat from 'dat.gui';
@@ -155,9 +155,9 @@ export default class MixColor extends React.Component {
   render() {
     return (
       <>
-        <main className="main sketch--mixcolor">
+        <main className="main sketch--mix-color">
           <div id="canvas"></div>
-          <SketchInfo />
+          <SketchInfoPixi title="Mix Color Demo" />
         </main>
       </>
     );

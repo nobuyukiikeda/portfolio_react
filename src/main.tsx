@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 import MixColor from './pages/mix-color/MixColor';
 import history from './history';
+import TurnImage from './pages/turn-image/TurnImage';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<Top />} />
         <Route path="/mix-color" element={<MixColor />} />
+        <Route path="/turn-image" element={<TurnImage />} />
         <Route
           path="*"
           element={
