@@ -19,9 +19,14 @@ export default class MixColor extends React.Component {
     color2: '#ecff7d',
   };
   toggle = {
+    limit: true,
     vertical: true,
     horizon: true,
   };
+
+  get maxValue() {
+    return this.toggle.limit ? 128 : 1024;
+  }
 
   get color1() {
     return CanvasUtil.rgb2Hex(this.colorPalette.color1);
@@ -106,7 +111,13 @@ export default class MixColor extends React.Component {
 
     this.datGui = new dat.GUI({ name: 'My GUI' });
     const target = this.triangle.shader.uniforms;
-    const guiValue = this.datGui.add(target, 'value', 0, 200, 1);
+    const guiValue = this.datGui.add(target, 'value', 0, this.maxValue, 1);
+    const guiValueLimit = this.datGui.add(this.toggle, 'limit');
+    guiValueLimit.onChange(() => {
+      target.limit = Number(this.toggle.limit);
+      guiValue.max(this.maxValue);
+      guiValue.setValue(target.value);
+    });
     const guiVertical = this.datGui.add(this.toggle, 'vertical');
     guiVertical.onChange(() => {
       target.vertical = Number(this.toggle.vertical);
