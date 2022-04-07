@@ -11,12 +11,14 @@ import {
 import MixColor from './pages/mix-color/MixColor';
 import history from './history';
 import TurnImage from './pages/turn-image/TurnImage';
+import Gallery from './pages/gallery/Gallery';
 
 ReactDOM.render(
   <React.StrictMode>
     <HistoryRouter history={history}>
       <Routes>
         <Route path="/" element={<Top />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/mix-color" element={<MixColor />} />
         <Route path="/turn-image" element={<TurnImage />} />
         <Route

@@ -1,6 +1,5 @@
 import React from 'react';
 import * as THREE from 'three';
-import SketchInfoPixi from '../../components/sketch-info/SketchInfoPixi';
 import vertexShader from './glsl/vertices.vs?raw';
 import fragmentShader from './glsl/fragment.fs?raw';
 import './turnImage.scss';
@@ -12,8 +11,6 @@ import SketchInfoThree from '../../components/sketch-info/SketchInfoThree';
 export default class TurnImage extends React.Component {
   wWidth = 0;
   wHeight = 0;
-  halfWidth = 0;
-  halfHeight = 0;
 
   componentDidMount() {
     this.init();
@@ -22,8 +19,6 @@ export default class TurnImage extends React.Component {
   init() {
     this.wWidth = window.innerWidth;
     this.wHeight = window.innerHeight;
-    this.halfWidth = this.wWidth / 2;
-    this.halfHeight = this.wHeight / 2;
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0xfcfcfc);

@@ -1,3 +1,13 @@
+.js-loader {
+  background-color: #3b7302;
+  p {
+    color: #f0fcec;
+  }
+}
+
 #canvas {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   line-height: 1;
 }

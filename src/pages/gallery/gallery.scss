@@ -1,0 +1,75 @@
+@import 'mixin';
+
+#canvas {
+  line-height: 1;
+}
+
+$sketch_gallery_primary: #624222;
+
+.js-loader {
+  background-color: #222222;
+  p {
+    color: #ddd;
+  }
+}
+
+#canvas {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  line-height: 1;
+}
+.sketch-info__title h1 {
+  color: $sketch_gallery_primary;
+}
+.sketch-info__title p {
+  color: $sketch_gallery_primary;
+}
+// .sketch-info__back a::after {
+// 	display: none;
+// }
+.gallery-pager {
+  display: none;
+  cursor: pointer;
+  &__pre,
+  &__next {
+    line-height: 1;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    @include mq(medium) {
+      width: 40px;
+      height: 40px;
+    }
+    a {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      &::before {
+        @include ba-block(48px, 48px);
+        top: 16px;
+        left: 16px;
+        border-top: 7px solid #fff;
+        border-left: 7px solid #fff;
+        transform: rotateZ(-45deg);
+        @include mq(medium) {
+          width: 20px;
+          height: 20px;
+          top: 10px;
+          left: 10px;
+        }
+      }
+    }
+  }
+  &__pre {
+    left: 32px;
+  }
+  &__next {
+    right: 32px;
+    a::before,
+    a::after {
+      transform: rotateZ(135deg);
+    }
+  }
+}

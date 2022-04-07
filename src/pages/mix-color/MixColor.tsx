@@ -5,7 +5,7 @@ import * as PIXI from 'pixi.js';
 import * as dat from 'dat.gui';
 import vertexShader from './glsl/vertices.vs?raw';
 import fragmentShader from './glsl/fragment.fs?raw';
-import CanvasUtil from '../../utils/canvasUtil';
+import CanvasUtil from '../../utils/CanvasUtil';
 
 export default class MixColor extends React.Component {
   app?: PIXI.Application;

@@ -1,4 +1,39 @@
+import * as THREE from 'three';
 export default class CanvasUtil {
+  static loader = new THREE.TextureLoader();
+
+  /**
+   * texture読み込みて返します
+   * @param src
+   * @returns
+   */
+  static loadTexture(src: string) {
+    return CanvasUtil.loader.load(src);
+  }
+
+  /**
+   * texture読み込みのpromiseを返します
+   * @param src
+   * @returns
+   */
+  static loadTextureAsync(src: string) {
+    return CanvasUtil.loader.loadAsync(src);
+  }
+
+  /**
+   * v1とv2を合成した値を返します。
+   * @param v1
+   * @param v2
+   * @param value
+   * @returns
+   */
+  static mixVector(v1: THREE.Vector3, v2: THREE.Vector3, value: number) {
+    value = Math.max(0, Math.min(value, 1));
+    const v1Value = v1.clone().multiplyScalar(1 - value);
+    const v2Value = v2.clone().multiplyScalar(value);
+    return v1Value.add(v2Value);
+  }
+
   /**
    * valueをmin,maxの範囲に丸めます
    * @param value
