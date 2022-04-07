@@ -4,11 +4,6 @@
   @include mq {
     padding: 16px;
   }
-  &__skill-content {
-    @include mq {
-      height: 260px;
-    }
-  }
   &__skill-text {
     padding-top: 1em;
     h3 {
