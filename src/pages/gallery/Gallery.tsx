@@ -250,10 +250,10 @@ export default class Gallery extends React.Component {
         this.lockCamera();
       }
     }
+    this.renderer.render(this.scene, this.camera);
     requestAnimationFrame(() => {
       this.renderCanvas();
     });
-    this.renderer.render(this.scene, this.camera);
   }
 
   /**
