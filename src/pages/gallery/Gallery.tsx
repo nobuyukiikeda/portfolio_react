@@ -48,18 +48,36 @@ export default class Gallery extends React.Component {
     afterZ: 0,
   };
 
+  resizeEvent?: () => void;
+
   viewRate = CanvasUtil.clamp(document.body.clientWidth / 1200, 0.5, 0.85);
 
   async componentDidMount() {
+    // 初期化処理
     await this.setup();
     this.init();
 
+    // ナビゲーションの表示
     setTimeout(() => {
       const pager = document.getElementsByClassName('gallery-pager');
       for (let i = 0; i < pager.length; i++) {
         (pager[i] as HTMLElement).style.display = 'block';
       }
     }, 5000);
+
+    // キャンバスの描画
+    this.renderCanvas();
+
+    // 画面リサイズ時のイベントを登録
+    this.resizeEvent = this.resetSize.bind(this);
+    window.addEventListener('resize', this.resizeEvent);
+  }
+
+  componentWillUnmount() {
+    // 画面リサイズ時のイベントを破棄します
+    if (this.resizeEvent) {
+      window.removeEventListener('resize', this.resizeEvent);
+    }
   }
 
   /**
@@ -102,24 +120,6 @@ export default class Gallery extends React.Component {
   private init() {
     this.initImages();
     this.initCamera();
-    this.renderCanvas();
-
-    window.addEventListener('resize', () => {
-      if (!this.camera) return;
-
-      const w = window.innerWidth;
-      const h = window.innerHeight;
-      this.viewRate = CanvasUtil.clamp(
-        document.body.clientWidth / 1200,
-        0.5,
-        0.9
-      );
-      this.renderer.setPixelRatio(window.devicePixelRatio);
-      this.renderer.setSize(w, h);
-      this.camera.aspect = w / h;
-      this.camera.updateProjectionMatrix();
-      this.setCamera();
-    });
   }
 
   /**
@@ -254,6 +254,27 @@ export default class Gallery extends React.Component {
       this.renderCanvas();
     });
     this.renderer.render(this.scene, this.camera);
+  }
+
+  /**
+   * レンダラー周りを高さ・幅を再設定します
+   * @returns
+   */
+  private resetSize() {
+    if (!this.camera) return;
+
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    this.viewRate = CanvasUtil.clamp(
+      document.body.clientWidth / 1200,
+      0.5,
+      0.9
+    );
+    this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.renderer.setSize(w, h);
+    this.camera.aspect = w / h;
+    this.camera.updateProjectionMatrix();
+    this.setCamera();
   }
 
   /**
